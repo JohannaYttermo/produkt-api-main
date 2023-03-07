@@ -20,7 +20,7 @@ class seleniumTest {
     @Disabled
     void checkTitle() {
 
-        // Hämta in den webDriver som ska användas
+        // Hämta in den webDriver som ska användas.
         WebDriver driver = new ChromeDriver();
 
         // Navigera till den webbsida som ska testas
