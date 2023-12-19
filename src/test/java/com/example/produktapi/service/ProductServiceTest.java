@@ -103,20 +103,6 @@ class ProductServiceTest {
     }
 
 
-    @Test
-    void whenAddingAProduct_thenReturnTrueIfProductIsPresent() {
-
-        //Given
-        Product product = new Product("Dator",4000.0,"elektronik","","");
-        //When
-        underTest.addProduct(product);
-        product.setId(5);   // Har skapat en produkt och givit ett ID
-        //Then
-        when(repository.findById(5)).thenReturn(Optional.of(product));  // Söker efter produkt med ID
-        assertTrue(repository.findById(5).isPresent());  // ser så att produkt med ID 5 finns (isPresent)
-
-    }
-
     // KOMPLETTERING
     @Test
     void AddProduct() {
@@ -194,8 +180,6 @@ class ProductServiceTest {
         EntityNotFoundException exception = assertThrows(EntityNotFoundException.class, () -> underTest.updateProduct(updatedProduct, nonExistingId));
         assertEquals(String.format("Produkt med id %d hittades inte",nonExistingId), exception.getMessage());
     }
-
-
 
     @Test
     void deleteProduct() {
